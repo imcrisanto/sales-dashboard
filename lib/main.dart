@@ -14,15 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sales Dashboard for Avire Branch',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.red,
       ),
       home: const LoginScreen(),
@@ -44,24 +35,33 @@ class LoginScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Column(
-              children: [
-                const Text('data'),
-                const Text('data'),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PinScreen()));
-                  },
-                  child: const Text('Login'),
-                ),
-                const Text('data'),
-                const Text('logo'),
-              ],
+            Expanded(
+              flex: 1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Take control of sales and data'),
+                  const Text(
+                      'See your performance at a glance with useful insights'),
+                  ElevatedButton(
+                    autofocus: true,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PinScreen()));
+                    },
+                    child: const Text('Login'),
+                  ),
+                  const Text('Developed by'),
+                  const Text('logo'),
+                ],
+              ),
             ),
-            const Text('image'),
+            Expanded(
+              flex: 1,
+              child: Image.asset('assets/images/wallpaper-1.png'),
+            ),
           ],
         ),
       ),
