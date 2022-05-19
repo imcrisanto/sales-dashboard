@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/main.dart';
+import 'costs_screen.dart';
+import 'sales_screen.dart';
+import 'recipe_screen.dart';
+
+final pages = <Widget>[
+  SalesScreen(),
+  RecipeScreen(),
+  CostScreen(),
+];
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -13,6 +22,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF5E9D9),
       body: Row(
         children: <Widget>[
           NavigationRail(
@@ -66,8 +76,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
           // This is the main content.
           Expanded(
             child: Center(
-              child: Text('selectedIndex: $_selectedIndex'),
-            ),
+                child: pages[
+                    _selectedIndex] //Text('selectedIndex: $_selectedIndex'),
+                ),
           )
         ],
       ),
