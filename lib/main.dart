@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Sales Dashboard for Avire Branch',
       theme: ThemeData(
         primarySwatch: Palette.tapaking,
-        backgroundColor: const Color(0xffF5E9D9),
+        scaffoldBackgroundColor: const Color(0xffF5E9D9),
       ),
       home: const DashboardScreen(),
     );
