@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './screens/pin_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: const LoginScreen(),
+      home: const PinScreen(),
     );
   }
 }
@@ -48,11 +49,13 @@ class LoginScreen extends StatelessWidget {
                 const Text('data'),
                 const Text('data'),
                 TextButton(
-                  onPressed: () {Navigator.push(
+                  onPressed: () {
+                    /*Navigator.push(
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                          const SplashScreen()))},
+                          const SplashScreen())))*/
+                  },
                   child: const Text('Login'),
                 ),
                 const Text('data'),
