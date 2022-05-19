@@ -15,6 +15,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Row(
         children: <Widget>[
           NavigationRail(
+            backgroundColor: Color(0xffD64123),
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int index) {
               setState(() {
@@ -22,21 +23,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
               });
             },
             labelType: NavigationRailLabelType.selected,
+            groupAlignment: 0.0,
+            minWidth: 100,
+            unselectedIconTheme:
+                const IconThemeData(size: 40, color: Colors.white),
+            selectedIconTheme:
+                const IconThemeData(size: 50, color: Colors.white),
             destinations: const <NavigationRailDestination>[
               NavigationRailDestination(
-                icon: Icon(Icons.favorite_border),
-                selectedIcon: Icon(Icons.favorite),
-                label: Text('First'),
+                icon: Icon(Icons.home),
+                selectedIcon: Icon(Icons.home),
+                label: Text(''),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.bookmark_border),
-                selectedIcon: Icon(Icons.book),
-                label: Text('Second'),
+                icon: Icon(Icons.menu_book),
+                selectedIcon: Icon(Icons.menu_book),
+                label: Text(''),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.star_border),
-                selectedIcon: Icon(Icons.star),
-                label: Text('Third'),
+                icon: Icon(Icons.settings),
+                selectedIcon: Icon(Icons.settings),
+                label: Text(''),
               ),
             ],
           ),
