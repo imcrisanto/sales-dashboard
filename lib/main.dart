@@ -35,24 +35,6 @@ class LoginScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-<<<<<<< Updated upstream
-            Column(
-              children: [
-                const Text('data'),
-                const Text('data'),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PinScreen()));
-                  },
-                  child: const Text('Login'),
-                ),
-                const Text('data'),
-                const Text('logo'),
-              ],
-=======
             Expanded(
               flex: 1,
               child: Column(
@@ -63,7 +45,12 @@ class LoginScreen extends StatelessWidget {
                       'See your performance at a glance with useful insights'),
                   ElevatedButton(
                     autofocus: true,
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const PinScreen()));
+                    },
                     child: const Text('Login'),
                   ),
                   const Text('Developed by'),
@@ -74,7 +61,6 @@ class LoginScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Image.asset('assets/images/wallpaper-1.png'),
->>>>>>> Stashed changes
             ),
           ],
         ),
