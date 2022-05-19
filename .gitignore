@@ -47,3 +47,4 @@ doc/api/
 .buildlog/
 .history
 .svn/
+lib/generated_plugin_registrant.dart

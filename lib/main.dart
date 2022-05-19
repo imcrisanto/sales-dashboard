@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/palette.dart';
+import 'package:sales_dashboard/screens/dashboard_screen.dart';
 import './screens/pin_screen.dart';
 import './palette.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Palette.tapaking,
         backgroundColor: const Color(0xffF5E9D9),
       ),
-      home: const LoginScreen(),
+      home: const DashboardScreen(),
     );
   }
 }
