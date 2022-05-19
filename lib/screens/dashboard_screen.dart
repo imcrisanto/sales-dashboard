@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sales_dashboard/main.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -18,9 +19,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
             backgroundColor: const Color(0xffD64123),
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int index) {
-              setState(() {
-                _selectedIndex = index;
-              });
+              if (index == 3) {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const LoginScreen(),
+                    ),
+                    ModalRoute.withName('/'));
+              } else {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              }
             },
             labelType: NavigationRailLabelType.selected,
             groupAlignment: 0.0,
