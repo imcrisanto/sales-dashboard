@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: Image.asset('assets/images/wallpaper-1.png'),
+              child: Image.asset('/images/wallpaper-1.png'),
             ),
           ],
         ),
