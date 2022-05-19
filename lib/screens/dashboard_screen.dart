@@ -15,7 +15,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       body: Row(
         children: <Widget>[
           NavigationRail(
-            backgroundColor: Color(0xffD64123),
+            backgroundColor: const Color(0xffD64123),
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int index) {
               setState(() {
@@ -43,6 +43,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
               NavigationRailDestination(
                 icon: Icon(Icons.settings),
                 selectedIcon: Icon(Icons.settings),
+                label: Text(''),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.logout),
+                selectedIcon: Icon(Icons.logout),
                 label: Text(''),
               ),
             ],
