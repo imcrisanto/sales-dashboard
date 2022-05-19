@@ -19,7 +19,7 @@ class RecipeScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Sorry no menu available yet'),
+                  const Text('Sorry no menu available yet'),
                 ],
               ),
             ),

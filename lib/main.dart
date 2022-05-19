@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sales_dashboard/palette.dart';
 import './screens/pin_screen.dart';
+import './palette.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sales Dashboard for Avire Branch',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Palette.tapaking,
+        backgroundColor: const Color(0xffF5E9D9),
       ),
       home: const LoginScreen(),
     );
