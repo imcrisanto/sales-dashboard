@@ -25,6 +25,8 @@ doc/api/
 *.iws
 .idea/
 
+# Web related
+lib/generated_plugin_registrant.dart
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -47,4 +49,3 @@ doc/api/
 .buildlog/
 .history
 .svn/
-lib/generated_plugin_registrant.dart
