@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './screens/pin_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +49,12 @@ class LoginScreen extends StatelessWidget {
                 const Text('data'),
                 const Text('data'),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PinScreen()));
+                  },
                   child: const Text('Login'),
                 ),
                 const Text('data'),
