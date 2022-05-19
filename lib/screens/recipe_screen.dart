@@ -5,17 +5,24 @@ class RecipeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Scaffold(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Expanded(
             flex: 1,
-            child: Text('Sorry no menu available yet'),
+            child: Padding(
+              padding: EdgeInsets.all(50),
+              child: Text('Sorry no menu available yet'),
+            ),
           ),
           Expanded(
-            flex: 1,
-            child: Image.asset('/images/wallpaper-2.png'),
+            flex: 2,
+            child: Image.asset(
+              '/images/wallpaper-2.png',
+              height: MediaQuery.of(context).size.height,
+              fit: BoxFit.cover,
+            ),
           ),
         ],
       ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/main.dart';
-import 'costs_screen.dart';
-import 'sales_screen.dart';
-import 'recipe_screen.dart';
-import 'dashhome_screen.dart';
+import '../screens/costs_screen.dart';
+import '../screens/sales_screen.dart';
+import '../screens/recipe_screen.dart';
+import '../screens/dashhome_screen.dart';
 
 final pages = <Widget>[
   const DashHomeScreen(),
@@ -63,7 +63,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.settings),
-                selectedIcon: Icon(Icons.settings),
+                selectedIcon: Icon(Icons.receipt_long),
                 label: Text(''),
               ),
               NavigationRailDestination(

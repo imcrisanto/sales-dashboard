@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './dashboard_screen.dart';
+import '../widgets/navigation_rail.dart';
 import 'package:pinput/pinput.dart';
 
 class PinScreen extends StatefulWidget {

@@ -10,48 +10,79 @@ class DashHomeScreen extends StatefulWidget {
 class _DashHomeScreenState extends State<DashHomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text('Kumusta Al!'),
-                  Text('Here is your summary analysis')
+                children: [
+                  Text('Kumusta' + 'Al'),
+                  Text('Here is your summary analysis'),
                 ],
               ),
-              const Text('insert date today')
+              ElevatedButton(
+                onPressed: () {},
+                child: Text('24 | May | 2022'),
+              ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text('box'),
-              Text('box'),
-              Text('box'),
-              Text('box')
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Spacer(
+                flex: 1,
+              ),
+              Expanded(
+                flex: 1,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Orders'),
+                ),
+              ),
+              Spacer(
+                flex: 1,
+              ),
+              Expanded(
+                flex: 1,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Sales to Date'),
+                ),
+              ),
+              Spacer(
+                flex: 1,
+              ),
+              Expanded(
+                flex: 1,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Monthly Costs'),
+                ),
+              ),
+              Spacer(
+                flex: 1,
+              ),
+              Expanded(
+                flex: 1,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Breakeven'),
+                ),
+              ),
+              Spacer(
+                flex: 1,
+              ),
             ],
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Text('Today Sales'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text(
-                "Today's Sales",
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('box'),
-                  const Text('box'),
-                  const Text('box'),
-                  ElevatedButton(
-                      onPressed: () {}, child: const Text('Add entry'))
-                ],
-              )
+              Text('Amount'),
+              Text('Category'),
+              Text('Payment'),
             ],
           )
         ],

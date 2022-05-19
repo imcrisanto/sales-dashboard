@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/palette.dart';
-import 'package:sales_dashboard/screens/dashboard_screen.dart';
+import 'package:sales_dashboard/widgets/navigation_rail.dart';
 import './screens/pin_screen.dart';
 import './palette.dart';
 
@@ -43,6 +43,7 @@ class LoginScreen extends StatelessWidget {
               flex: 1,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Text('Take control of sales and data'),
                   const Text(
@@ -63,9 +64,13 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 1,
-              child: Image.asset('/images/wallpaper-1.png'),
-            ),
+              flex: 2,
+              child: Image.asset(
+                '/images/wallpaper-1.png',
+                height: MediaQuery.of(context).size.height,
+                fit: BoxFit.cover,
+              ),
+            )
           ],
         ),
       ),
