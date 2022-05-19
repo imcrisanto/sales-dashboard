@@ -3,11 +3,12 @@ import 'package:sales_dashboard/main.dart';
 import 'costs_screen.dart';
 import 'sales_screen.dart';
 import 'recipe_screen.dart';
+import 'dashhome_screen.dart';
 
 final pages = <Widget>[
-  SalesScreen(),
-  RecipeScreen(),
-  CostScreen(),
+  const DashHomeScreen(),
+  const RecipeScreen(),
+  const CostScreen(),
 ];
 
 class DashboardScreen extends StatefulWidget {
