@@ -57,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                     child: const Text('Login'),
                   ),
                   const Text('Developed by'),
-                  const Text('logo'),
+                  Image.asset('/images/ibana-logo.png'),
                 ],
               ),
             ),
