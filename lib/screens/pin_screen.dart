@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './dashboard_screen.dart';
+import 'package:pinput/pinput.dart';
 
 class PinScreen extends StatefulWidget {
   const PinScreen({Key? key}) : super(key: key);
@@ -16,12 +17,11 @@ class _PinScreenState extends State<PinScreen> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
-            Text('thing 1'),
-            Text('thing 2'),
-            Text('thing 3'),
-            Text('thing 4')
-          ]),
+          const Pinput(
+            length: 4,
+            autofocus: true,
+            closeKeyboardWhenCompleted: true,
+          ),
           const Text("Please enter your 4 digit pin code"),
           TextButton(
               onPressed: () {
