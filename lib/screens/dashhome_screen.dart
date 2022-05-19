@@ -37,12 +37,10 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
             ],
           ),
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: const Text(
-                  "Today's Sales",
-                ),
+              const Text(
+                "Today's Sales",
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
