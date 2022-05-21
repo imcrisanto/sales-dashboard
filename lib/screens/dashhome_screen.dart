@@ -15,7 +15,16 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
   double _amount = 0;
   late String _category;
   double _payment = 0;
+  late String formattedDate;
   @override
+  void initState() {
+    var date = new DateTime.now().toString();
+
+    var dateParse = DateTime.parse(date);
+
+    formattedDate = "${dateParse.day} | ${dateParse.month} | ${dateParse.year}";
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -31,11 +40,11 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
               ),
               ElevatedButton(
                 onPressed: () {},
-                child: const Text('24 | May | 2022'),
+                child: Text(formattedDate),
               ),
             ],
           ),
-          /*Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Spacer(
@@ -82,7 +91,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                 flex: 1,
               ),
             ],
-          ),*/
+          ),
           const Text('Today Sales'),
           Form(
             key: _formKey,
