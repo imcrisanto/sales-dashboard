@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/main.dart';
 import '../screens/costs_screen.dart';
-import '../screens/sales_screen.dart';
+
 import '../screens/recipe_screen.dart';
 import '../screens/dashhome_screen.dart';
 import 'package:sales_dashboard/database_mimic.dart';

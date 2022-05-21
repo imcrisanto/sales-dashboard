@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/database_mimic.dart';
+import '../screens/sales_screen.dart';
 
 class DashHomeScreen extends StatefulWidget {
   final List<DataEntry> entry;
@@ -16,15 +17,18 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
   late String _category;
   double _payment = 0;
   late String formattedDate;
+
   @override
   void initState() {
-    var date = new DateTime.now().toString();
+    var date = DateTime.now().toString();
 
     var dateParse = DateTime.parse(date);
 
     formattedDate = "${dateParse.day} | ${dateParse.month} | ${dateParse.year}";
+    super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -47,47 +51,47 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Expanded(
                 flex: 1,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Orders'),
+                  child: const Text('Orders'),
                 ),
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Expanded(
                 flex: 1,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Sales to Date'),
+                  child: const Text('Sales to Date'),
                 ),
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Expanded(
                 flex: 1,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Monthly Costs'),
+                  child: const Text('Monthly Costs'),
                 ),
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Expanded(
                 flex: 1,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text('Breakeven'),
+                  child: const Text('Breakeven'),
                 ),
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
             ],
@@ -222,8 +226,5 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
 }
 
 bool isNumeric(String s) {
-  if (s == null) {
-    return false;
-  }
   return double.tryParse(s) != null;
 }
