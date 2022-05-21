@@ -37,6 +37,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
           Row(
             children: [
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text('Kumusta' 'Al'),
                   Text('Here is your summary analysis'),
