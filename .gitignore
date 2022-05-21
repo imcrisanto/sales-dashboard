@@ -49,3 +49,4 @@ lib/generated_plugin_registrant.dart
 .buildlog/
 .history
 .svn/
+.idea/libraries/Flutter_Plugins.xml
