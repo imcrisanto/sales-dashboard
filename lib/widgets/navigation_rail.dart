@@ -4,11 +4,13 @@ import '../screens/costs_screen.dart';
 import '../screens/sales_screen.dart';
 import '../screens/recipe_screen.dart';
 import '../screens/dashhome_screen.dart';
+import 'package:sales_dashboard/database_mimic.dart';
 
+List<DataEntry> local = Entries().listreturn();
 final pages = <Widget>[
-  const DashHomeScreen(),
+  DashHomeScreen(entry: local),
   const RecipeScreen(),
-  const CostScreen(),
+  CostScreen(entry: local),
 ];
 
 class DashboardScreen extends StatefulWidget {
