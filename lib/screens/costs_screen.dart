@@ -14,7 +14,7 @@ class CostScreen extends StatelessWidget {
         const Text('This is the cost screen'),
         for (int i = 0; i < entry.length; i++)
           Text(
-              "Amount: ${entry[i].amountEnt};Category: ${entry[i].categoryEnt};Payment: ${entry[i].paymentEnt};User: ${entry[i].userEnt}")
+              "Time: ${entry[i].timeEnt}; Amount: ${entry[i].amountEnt};Category: ${entry[i].categoryEnt};Payment: ${entry[i].paymentEnt};User: ${entry[i].userEnt}")
       ],
     ));
   }
