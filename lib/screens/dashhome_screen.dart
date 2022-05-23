@@ -122,7 +122,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               },
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                hintText: 'Enter a search term',
+                                hintText: 'Enter sales amount',
                               ),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
