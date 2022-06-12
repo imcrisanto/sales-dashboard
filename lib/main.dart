@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Palette.tapaking,
         scaffoldBackgroundColor: const Color(0xffF5E9D9),
       ),
-      home: const DashboardScreen(),
+      home: const LoginScreen(),
     );
   }
 }
