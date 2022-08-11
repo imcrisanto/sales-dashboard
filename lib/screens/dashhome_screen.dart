@@ -38,20 +38,33 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('Kumusta' 'Al'),
-                    Text('Here is your summary analysis'),
-                  ],
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(formattedDate),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(100, 25, 100, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text('Kumusta' 'Al'),
+                      Text('Here is your summary analysis'),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 300,
+                    height: 60,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                          style: const TextStyle(color: Colors.red),
+                          formattedDate),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -101,145 +114,163 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                 ),
               ],
             ),
-            const Text('Today Sales'),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(100, 0, 100, 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Text('Today Sales'),
+                ],
+              ),
+            ),
             Form(
               key: _formKey,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Amount'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: TextFormField(
-                              onChanged: (value) {
-                                _amount = double.parse(value);
-                              },
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter sales amount',
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(100, 0, 100, 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Amount'),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              child: TextFormField(
+                                onChanged: (value) {
+                                  _amount = double.parse(value);
+                                },
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Enter sales amount',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter some text';
+                                  } else if (isNumeric(value) == false) {
+                                    return 'Please enter a numeric value';
+                                  }
+                                  return null;
+                                },
                               ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                } else if (isNumeric(value) == false) {
-                                  return 'Please enter a numeric value';
-                                }
-                                return null;
-                              },
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Category'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: FormField<String>(
-                              builder: (FormFieldState<String> state) {
-                                return InputDecorator(
-                                  isEmpty: false,
-                                  decoration: InputDecoration(
-                                      errorStyle: const TextStyle(
-                                          color: Colors.redAccent,
-                                          fontSize: 16.0),
-                                      hintText: 'Please select expense',
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0))),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      value: _currentSelectedValue,
-                                      isDense: true,
-                                      onChanged: (newValue) {
-                                        setState(() {
-                                          _currentSelectedValue = newValue!;
-                                          _category = newValue;
-                                        });
-                                      },
-                                      items: categories.map((String value) {
-                                        return DropdownMenuItem<String>(
-                                          value: value,
-                                          child: Text(value),
-                                        );
-                                      }).toList(),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Category'),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: FormField<String>(
+                                builder: (FormFieldState<String> state) {
+                                  return InputDecorator(
+                                    isEmpty: false,
+                                    decoration: InputDecoration(
+                                        errorStyle: const TextStyle(
+                                            color: Colors.redAccent,
+                                            fontSize: 16.0),
+                                        hintText: 'Please select expense',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0))),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton<String>(
+                                        value: _currentSelectedValue,
+                                        isDense: true,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            _currentSelectedValue = newValue!;
+                                            _category = newValue;
+                                          });
+                                        },
+                                        items: categories.map((String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                      ),
                                     ),
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Payment'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: TextFormField(
-                              onChanged: (value) {
-                                _payment = double.parse(value);
-                              },
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter a search term',
+                                  );
+                                },
                               ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                } else if (isNumeric(value) == false) {
-                                  return 'Please enter a numeric value';
-                                }
-                                return null;
-                              },
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        // If the form is valid, display a snackbar. In the real world,
-                        // you'd often call a server or save the information in a database.
-                        var date = DateTime.now().toString();
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Payment'),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              child: TextFormField(
+                                onChanged: (value) {
+                                  _payment = double.parse(value);
+                                },
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Enter a search term',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Please enter some text';
+                                  } else if (isNumeric(value) == false) {
+                                    return 'Please enter a numeric value';
+                                  }
+                                  return null;
+                                },
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: SizedBox(
+                        height: 60,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              // If the form is valid, display a snackbar. In the real world,
+                              // you'd often call a server or save the information in a database.
+                              var date = DateTime.now().toString();
 
-                        var dateParse = DateTime.parse(date);
+                              var dateParse = DateTime.parse(date);
 
-                        entryDate =
-                            "${dateParse.year}-${dateParse.month}-${dateParse.day} ${dateParse.hour}:${dateParse.minute}:${dateParse.second}";
-                        widget.entry.add(DataEntry(_amount, _category, _payment,
-                            "Admin01", entryDate));
+                              entryDate =
+                                  "${dateParse.year}-${dateParse.month}-${dateParse.day} ${dateParse.hour}:${dateParse.minute}:${dateParse.second}";
+                              widget.entry.add(DataEntry(_amount, _category,
+                                  _payment, "Admin01", entryDate));
 
-                        Entries().testprint(widget.entry);
+                              Entries().testprint(widget.entry);
 
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Adding to database')),
-                        );
-                      }
-                    },
-                    child: const Text('Add Entry'),
-                  )
-                ],
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Adding to database')),
+                              );
+                            }
+                          },
+                          child: const Text('Add Entry'),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],

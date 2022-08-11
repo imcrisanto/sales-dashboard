@@ -9,6 +9,8 @@ class PinScreen extends StatefulWidget {
   State<PinScreen> createState() => _PinScreenState();
 }
 
+final formKey = GlobalKey<FormState>();
+
 class _PinScreenState extends State<PinScreen> {
   @override
   Widget build(BuildContext context) {
@@ -17,20 +19,31 @@ class _PinScreenState extends State<PinScreen> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Pinput(
+          Pinput(
             length: 4,
             autofocus: true,
             closeKeyboardWhenCompleted: true,
+            validator: (s) {
+              return s == '2022' ? null : 'Incorrect Pincode';
+            },
           ),
-          const Text("Please enter your 4 digit pin code"),
-          TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DashboardScreen()));
-              },
-              child: const Text('Sign In'))
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            child: Column(
+              children: [
+                const Text("Please enter your 4 digit pin code"),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DashboardScreen()));
+                  },
+                  child: const Text('Sign In'),
+                ),
+              ],
+            ),
+          ),
         ],
       )),
     );

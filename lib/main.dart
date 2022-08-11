@@ -42,24 +42,44 @@ class LoginScreen extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const Text('Take control of sales and data'),
-                  const Text(
-                      'See your performance at a glance with useful insights'),
-                  ElevatedButton(
-                    autofocus: true,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PinScreen()));
-                    },
-                    child: const Text('Login'),
+                  Column(
+                    children: [
+                      const Text('Take control of sales and data'),
+                      const Text(
+                          'See your performance at a glance with useful insights'),
+                    ],
                   ),
-                  const Text('Developed by'),
-                  Image.asset('/images/ibana-logo.png'),
+                  SizedBox(
+                    height: 70,
+                    width: 270,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ))),
+                      autofocus: true,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PinScreen()));
+                      },
+                      child: const Text('Login'),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(200, 0, 200, 0),
+                    child: Column(
+                      children: [
+                        const Text('Developed by'),
+                        Image.asset('/images/ibana-logo.png'),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
