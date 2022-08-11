@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sales_dashboard/main.dart';
-import '../screens/costs_screen.dart';
 
-import '../screens/recipe_screen.dart';
-import '../screens/dashhome_screen.dart';
+import 'package:sales_dashboard/main.dart';
+import '../screens/dashboard.dart';
+import '../screens/recipes.dart';
+import '../screens/sales.dart';
+import '../screens/settings.dart';
+
 import 'package:sales_dashboard/database_mimic.dart';
 
 List<DataEntry> local = Entries().listreturn();

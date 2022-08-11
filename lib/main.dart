@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/palette.dart';
-import './screens/pin_screen.dart';
+import './screens/pincode.dart';
 import './palette.dart';
 
 void main() {
