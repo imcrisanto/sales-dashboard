@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/palette.dart';
-import 'package:sales_dashboard/widgets/navigation_rail.dart';
 import './screens/pin_screen.dart';
 import './palette.dart';
 
@@ -72,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(200, 0, 200, 0),
+                    padding: const EdgeInsets.fromLTRB(200, 0, 200, 0),
                     child: Column(
                       children: [
                         const Text('Developed by'),

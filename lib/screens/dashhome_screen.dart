@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/database_mimic.dart';
-import '../screens/sales_screen.dart';
 
 class DashHomeScreen extends StatefulWidget {
   final List<DataEntry> entry;

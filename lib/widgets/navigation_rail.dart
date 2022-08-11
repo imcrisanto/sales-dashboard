@@ -32,7 +32,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             backgroundColor: const Color(0xffD64123),
             selectedIndex: _selectedIndex,
             onDestinationSelected: (int index) {
-              if (index == 3) {
+              if (index == 4) {
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
@@ -64,8 +64,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 label: Text(''),
               ),
               NavigationRailDestination(
-                icon: Icon(Icons.settings),
+                icon: Icon(Icons.receipt_long),
                 selectedIcon: Icon(Icons.receipt_long),
+                label: Text(''),
+              ),
+              NavigationRailDestination(
+                icon: Icon(Icons.settings),
+                selectedIcon: Icon(Icons.settings),
                 label: Text(''),
               ),
               NavigationRailDestination(

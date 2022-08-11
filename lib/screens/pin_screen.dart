@@ -28,7 +28,7 @@ class _PinScreenState extends State<PinScreen> {
             },
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
             child: Column(
               children: [
                 const Text("Please enter your 4 digit pin code"),
