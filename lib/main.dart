@@ -55,11 +55,13 @@ class LoginScreen extends StatelessWidget {
                     width: 270,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15.0),
-                      ))),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                        ),
+                      ),
                       autofocus: true,
                       onPressed: () {
                         Navigator.push(

@@ -12,7 +12,12 @@ List<DataEntry> local = Entries().listreturn();
 final pages = <Widget>[
   DashHomeScreen(entry: local),
   const RecipeScreen(),
-  CostScreen(entry: local),
+  const SalesScreen(
+    entry: [],
+  ),
+  const SettingsScreen(
+    entry: [],
+  ),
 ];
 
 class DashboardScreen extends StatefulWidget {

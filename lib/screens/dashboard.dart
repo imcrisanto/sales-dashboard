@@ -53,13 +53,16 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     width: 300,
                     height: 60,
                     child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
+                      style: ButtonStyle(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                        ),
                       ),
                       onPressed: () {},
-                      child: Text(
-                          style: const TextStyle(color: Colors.red),
-                          formattedDate),
+                      child: Text(formattedDate),
                     ),
                   ),
                 ],
@@ -271,7 +274,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
