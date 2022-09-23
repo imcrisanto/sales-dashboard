@@ -31,7 +31,6 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Text('Tapaking'),
         title: const Text('Sales Dashboard for Avire Branch'),
       ),
       body: Center(
@@ -72,14 +71,26 @@ class LoginScreen extends StatelessWidget {
                       child: const Text('Login'),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(200, 0, 200, 0),
-                    child: Column(
-                      children: [
-                        const Text('Developed by'),
-                        Image.asset('/images/ibana-logo.png'),
-                      ],
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: Text(''),
+                            flex: 3,
+                          ),
+                          Expanded(
+                            child: Image.asset('/images/ibana-logo.png'),
+                            flex: 4,
+                          ),
+                          const Expanded(
+                            child: Text(''),
+                            flex: 3,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),
