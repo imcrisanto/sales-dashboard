@@ -19,30 +19,30 @@ class _PinScreenState extends State<PinScreen> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Pinput(
-            length: 4,
-            autofocus: true,
-            closeKeyboardWhenCompleted: true,
-            validator: (s) {
-              return s == '2022' ? null : 'Incorrect Pincode';
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-            child: Column(
-              children: [
-                const Text("Please enter your 4 digit pin code"),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DashboardScreen()));
+          Column(
+            children: [
+              const Text("Please enter your four digit pin code"),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Pinput(
+                  length: 4,
+                  autofocus: true,
+                  closeKeyboardWhenCompleted: true,
+                  validator: (s) {
+                    return s == '2022' ? null : 'Incorrect Pincode';
                   },
-                  child: const Text('Sign In'),
                 ),
-              ],
-            ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DashboardScreen()));
+                },
+                child: const Text('Sign In'),
+              ),
+            ],
           ),
         ],
       )),

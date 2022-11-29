@@ -13,7 +13,13 @@ class RecipeScreen extends StatelessWidget {
             flex: 1,
             child: Padding(
               padding: EdgeInsets.all(50),
-              child: Text('Sorry no menu available yet'),
+              child: Text(
+                'Sorry no menu available yet',
+                style: TextStyle(
+                    color: Color(0xffD64123),
+                    fontSize: 54,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
           Expanded(
