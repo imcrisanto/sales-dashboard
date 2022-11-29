@@ -25,7 +25,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
 
     var dateParse = DateTime.parse(date);
 
-    formattedDate = "${dateParse.day} | ${dateParse.month} | ${dateParse.year}";
+    formattedDate =
+        "Today   ${dateParse.day}.${dateParse.month}.${dateParse.year}";
     super.initState();
   }
 
@@ -45,24 +46,47 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      Text('Kumusta' 'Al'),
-                      Text('Here is your summary analysis'),
+                      Text(
+                        'Kumusta ' + 'Al',
+                        style: TextStyle(
+                            color: Color(0xffD64123),
+                            fontSize: 54,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Text(
+                        'Here is your summary analysis',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ],
                   ),
                   SizedBox(
-                    width: 300,
+                    width: 280,
                     height: 60,
                     child: ElevatedButton(
                       style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.red),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),
                       onPressed: () {},
-                      child: Text(formattedDate),
+                      child: Text(
+                        formattedDate,
+                        style: TextStyle(
+                          color: Color(0xffD64123),
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -121,7 +145,13 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const Text('Today Sales'),
+                  const Text(
+                    'Add New Sales Entry',
+                    style: TextStyle(
+                        color: Color(0xffD64123),
+                        fontSize: 54,
+                        fontWeight: FontWeight.w800),
+                  ),
                 ],
               ),
             ),
@@ -138,7 +168,13 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Amount'),
+                            const Text(
+                              'Amount',
+                              style: TextStyle(
+                                  color: Color(0xff7D0C0E),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600),
+                            ),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               child: TextFormField(
@@ -169,7 +205,13 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Category'),
+                            const Text(
+                              'Category',
+                              style: TextStyle(
+                                  color: Color(0xff7D0C0E),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600),
+                            ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 16.0),
@@ -217,7 +259,13 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Payment'),
+                            const Text(
+                              'Payment',
+                              style: TextStyle(
+                                  color: Color(0xff7D0C0E),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600),
+                            ),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               child: TextFormField(
