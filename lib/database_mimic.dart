@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class DataEntry {
   DataEntry(double amountInt, String categoryInt, String paymentType,
@@ -13,16 +14,24 @@ class DataEntry {
   double amountEnt = 0.0;
   String categoryEnt = '';
   String paymentEnt = "";
-  String userEnt = 'Admin';
+  String userEnt = '';
 }
 
+//Pre-populated database
 class Entries {
   List<DataEntry> storage = [
-    DataEntry(234.00, 'new', "GCash", 'Admin01', "2022-05-20 12:09:01"),
-    DataEntry(234.00, 'dine in', "Cash", 'Admin01', "2022-05-20 - 13:09:03"),
-    DataEntry(500.00, 'field', "Card", 'Admin01', "2022-05-20 - 13:12:33"),
-    DataEntry(
-        103712355.23, 'inventory', "Debit", 'Admin01', "2022-05-20 - 13:15:45")
+    DataEntry(1876, 'Dine In', "Cash", 'Sheryl', "2022-05-20 00:00:00"),
+    DataEntry(1154, 'Dine In', "GCash", 'Sheryl', "2022-05-20 00:00:00"),
+    DataEntry(786, 'Takeout', "Cash", 'Sheryl', "2022-05-20 00:00:00"),
+    DataEntry(114, 'Dine In', "GCash", 'Alvin', "2022-05-20 00:00:00"),
+    DataEntry(981, 'Delivery', "Credit", 'Alvin', "2022-05-20 00:00:00"),
+    DataEntry(1061, 'Delivery', "Credit", 'Sheryl', "2022-05-20 00:00:00"),
+    DataEntry(914, 'Takeout', "Cash", 'Sheryl', "2022-05-20 00:00:00"),
+    DataEntry(459, 'Dine In', "Debit", 'Justin', "2022-05-20 00:00:00"),
+    DataEntry(384, 'Takeout', "Cash", 'Sheryl', "2022-05-20 00:00:00"),
+    DataEntry(1019, 'Delivery', "Cash", 'Justin', "2022-05-20 00:00:00"),
+    DataEntry(855, 'Dine In', "Debit", 'Justin', "2022-05-20 00:00:00"),
+    DataEntry(560, 'Dine In', "Cash", 'Justin', "2022-05-20 00:00:00"),
   ];
 
   void addentry(List<DataEntry> roll, double amt, String categ, String pay,

@@ -35,7 +35,7 @@ class SalesScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600),
               ),
               const Text(
-                'Category',
+                'Dining Category',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
                     fontSize: 24,
@@ -56,13 +56,6 @@ class SalesScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600),
               ),
               const Text(
-                'Date',
-                style: TextStyle(
-                    color: Color(0xff7D0C0E),
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600),
-              ),
-              const Text(
                 'User',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
@@ -77,8 +70,56 @@ class SalesScreen extends StatelessWidget {
             thickness: 2, //thickness of divier line
           ),
           for (int i = 0; i < entry.length; i++)
-            Text(
-                "Time: ${entry[i].timeEnt}; Amount: ${entry[i].amountEnt};Category: ${entry[i].categoryEnt};Payment: ${entry[i].paymentEnt};User: ${entry[i].userEnt}")
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  "${entry[i].timeEnt}",
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    color: Color(0xff7D0C0E),
+                  ),
+                ),
+                Text(
+                  "${entry[i].categoryEnt}",
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    color: Color(0xff7D0C0E),
+                  ),
+                ),
+                Text(
+                  '₱ ' "${entry[i].amountEnt}" '.00',
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    color: Color(0xff7D0C0E),
+                  ),
+                ),
+                Text(
+                  "${entry[i].paymentEnt}",
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    color: Color(0xff7D0C0E),
+                  ),
+                ),
+                Text(
+                  "${entry[i].userEnt}",
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 24,
+                    color: Color(0xff7D0C0E),
+                  ),
+                ),
+              ],
+            ),
+          Divider(
+            color: Colors.redAccent, //color of divider
+            height: 5, //height spacing of divider
+            thickness: 2, //thickness of divier line
+          ),
         ],
       ),
     ));

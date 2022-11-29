@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/database_mimic.dart';
+import '../screens/dashboard.dart';
+import '../screens/recipes.dart';
+import '../screens/sales.dart';
+import '../screens/settings.dart';
 
 class DashHomeScreen extends StatefulWidget {
   final List<DataEntry> entry;
@@ -18,8 +22,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
   late String entryDate;
   final List<String> categories = [
     "Unselected",
-    "Dine-In",
-    "Take-Out",
+    "Dine In",
+    "Takeout",
     "Delivery"
   ];
   final List<String> payment_categories = [
@@ -27,7 +31,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
     "Cash",
     "Credit",
     "Debit",
-    "GCash/Paymaya"
+    "GCash"
   ];
 
   String _currentSelectedValue = 'Unselected';
@@ -113,9 +117,6 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   color: const Color(0xffFFD5AA),
                   child: InkWell(
                     splashColor: Colors.lightBlueAccent.withAlpha(30),
-                    onTap: () {
-                      debugPrint('Card tapped.');
-                    },
                     child: SizedBox(
                       width: 300,
                       height: 230,
@@ -136,11 +137,12 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Php' '12,345',
+                                  '₱ ' '12,345',
                                   style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       color: Color(0xff7A4206),
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w600),
+                                      fontSize: 34,
+                                      fontWeight: FontWeight.w800),
                                 ),
                                 Image.asset('/icons/orders-icon.png'),
                               ],
@@ -161,12 +163,11 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   ),
                 ),
                 Card(
+                  elevation: 10,
                   color: const Color(0xffCADEFF),
                   child: InkWell(
                     splashColor: Colors.lightBlueAccent.withAlpha(30),
-                    onTap: () {
-                      debugPrint('Card tapped.');
-                    },
+                    onTap: () {},
                     child: SizedBox(
                       width: 300,
                       height: 230,
@@ -187,11 +188,12 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Php' '12,345',
+                                  '₱ ' '12,345',
                                   style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       color: Color(0xff00215D),
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w600),
+                                      fontSize: 34,
+                                      fontWeight: FontWeight.w800),
                                 ),
                                 Image.asset('/icons/sales-icon.png'),
                               ],
@@ -212,12 +214,11 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   ),
                 ),
                 Card(
+                  elevation: 10,
                   color: const Color(0xffFDC1C3),
                   child: InkWell(
                     splashColor: Colors.lightBlueAccent.withAlpha(30),
-                    onTap: () {
-                      debugPrint('Card tapped.');
-                    },
+                    onTap: () {},
                     child: SizedBox(
                       width: 300,
                       height: 230,
@@ -238,11 +239,12 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Php' '12,345',
+                                  '₱ ' '12,345',
                                   style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       color: Color(0xff7D0C0E),
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w600),
+                                      fontSize: 34,
+                                      fontWeight: FontWeight.w800),
                                 ),
                                 Image.asset('/icons/cost-icon.png'),
                               ],
@@ -263,12 +265,11 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   ),
                 ),
                 Card(
+                  elevation: 10,
                   color: const Color(0xffC4F0B5),
                   child: InkWell(
                     splashColor: Colors.lightBlueAccent.withAlpha(30),
-                    onTap: () {
-                      debugPrint('Card tapped.');
-                    },
+                    onTap: () {},
                     child: SizedBox(
                       width: 300,
                       height: 230,
@@ -283,17 +284,18 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               style: TextStyle(
                                   color: Color(0xff7D0C0E),
                                   fontSize: 30,
-                                  fontWeight: FontWeight.w600),
+                                  fontWeight: FontWeight.w700),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  'Php' '12,345',
+                                const Text(
+                                  '₱ ' '12,345',
                                   style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       color: Color(0xff7D0C0E),
-                                      fontSize: 28,
-                                      fontWeight: FontWeight.w600),
+                                      fontSize: 34,
+                                      fontWeight: FontWeight.w800),
                                 ),
                                 Image.asset('/icons/breakeven-icon.png'),
                               ],
@@ -316,12 +318,12 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(100, 0, 100, 25),
+              padding: const EdgeInsets.fromLTRB(100, 0, 100, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
-                    'Add New Sales Entry',
+                    'New Sales Entry',
                     style: TextStyle(
                         color: Color(0xffD64123),
                         fontSize: 54,
@@ -489,62 +491,6 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                         ),
                       ),
                     ),
-                    /*Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Payment',
-                              style: TextStyle(
-                                  color: Color(0xff7D0C0E),
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              child: FormField<String>(
-                                builder: (FormFieldState<String> state) {
-                                  return InputDecorator(
-                                    isEmpty: false,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        errorStyle: const TextStyle(
-                                            color: Colors.redAccent,
-                                            fontSize: 16.0),
-                                        hintText: 'Please select expense',
-                                        border: OutlineInputBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(5.0))),
-                                    child: DropdownButtonHideUnderline(
-                                      child: DropdownButton<String>(
-                                        value: _currentSelectedValue,
-                                        isDense: true,
-                                        onChanged: (newValue) {
-                                          setState(() {
-                                            _currentSelectedValue = newValue!;
-                                            _category = newValue;
-                                          });
-                                        },
-                                        items: payment_categories
-                                            .map((String value) {
-                                          return DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
-                                          );
-                                        }).toList(),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),*/
                     Expanded(
                       child: SizedBox(
                         height: 60,
