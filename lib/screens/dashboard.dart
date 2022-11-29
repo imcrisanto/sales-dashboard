@@ -95,48 +95,210 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Spacer(
-                  flex: 1,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Orders'),
+                Card(
+                  elevation: 10,
+                  color: const Color(0xffFFD5AA),
+                  child: InkWell(
+                    splashColor: Colors.lightBlueAccent.withAlpha(30),
+                    onTap: () {
+                      debugPrint('Card tapped.');
+                    },
+                    child: SizedBox(
+                      width: 300,
+                      height: 230,
+                      child: Padding(
+                        padding: const EdgeInsets.all(35.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Orders',
+                              style: TextStyle(
+                                  color: Color(0xff000000),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Php' '12,345',
+                                  style: TextStyle(
+                                      color: Color(0xff7A4206),
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Image.asset('/icons/orders-icon.png'),
+                              ],
+                            ),
+                            Spacer(
+                              flex: 1,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('tap for more info'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                const Spacer(
-                  flex: 1,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Sales to Date'),
+                Card(
+                  color: const Color(0xffCADEFF),
+                  child: InkWell(
+                    splashColor: Colors.lightBlueAccent.withAlpha(30),
+                    onTap: () {
+                      debugPrint('Card tapped.');
+                    },
+                    child: SizedBox(
+                      width: 300,
+                      height: 230,
+                      child: Padding(
+                        padding: const EdgeInsets.all(35.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Sales to Date',
+                              style: TextStyle(
+                                  color: Color(0xff000000),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Php' '12,345',
+                                  style: TextStyle(
+                                      color: Color(0xff00215D),
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Image.asset('/icons/sales-icon.png'),
+                              ],
+                            ),
+                            Spacer(
+                              flex: 1,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('tap for more info'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                const Spacer(
-                  flex: 1,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Monthly Costs'),
+                Card(
+                  color: const Color(0xffFDC1C3),
+                  child: InkWell(
+                    splashColor: Colors.lightBlueAccent.withAlpha(30),
+                    onTap: () {
+                      debugPrint('Card tapped.');
+                    },
+                    child: SizedBox(
+                      width: 300,
+                      height: 230,
+                      child: Padding(
+                        padding: const EdgeInsets.all(35.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Monthly Cost',
+                              style: TextStyle(
+                                  color: Color(0xff000000),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Php' '12,345',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Image.asset('/icons/cost-icon.png'),
+                              ],
+                            ),
+                            Spacer(
+                              flex: 1,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('tap for more info'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                const Spacer(
-                  flex: 1,
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Breakeven'),
+                Card(
+                  color: const Color(0xffC4F0B5),
+                  child: InkWell(
+                    splashColor: Colors.lightBlueAccent.withAlpha(30),
+                    onTap: () {
+                      debugPrint('Card tapped.');
+                    },
+                    child: SizedBox(
+                      width: 300,
+                      height: 230,
+                      child: Padding(
+                        padding: const EdgeInsets.all(35.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Breakeven',
+                              style: TextStyle(
+                                  color: Color(0xff7D0C0E),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Php' '12,345',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 28,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Image.asset('/icons/breakeven-icon.png'),
+                              ],
+                            ),
+                            Spacer(
+                              flex: 1,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text('tap for more info'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-                const Spacer(
-                  flex: 1,
                 ),
               ],
             ),
