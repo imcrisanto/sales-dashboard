@@ -47,7 +47,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        'Kumusta ' + 'Al',
+                        'Kumusta ' 'Al',
                         style: TextStyle(
                             color: Color(0xffD64123),
                             fontSize: 54,
@@ -81,8 +81,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                       onPressed: () {},
                       child: Text(
                         formattedDate,
-                        style: TextStyle(
-                          color: Color(0xffD64123),
+                        style: const TextStyle(
+                          color: const Color(0xffD64123),
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),

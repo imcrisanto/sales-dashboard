@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/palette.dart';
+import 'package:sales_dashboard/screens/dashboard.dart';
+import 'package:sales_dashboard/widgets/navigation_rail.dart';
 import './screens/pincode.dart';
 import './palette.dart';
 
@@ -51,14 +53,14 @@ class LoginScreen extends StatelessWidget {
                         vertical: 100.0, horizontal: 50.0),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'Take control of sales and data',
                           style: TextStyle(
                               color: Color(0xffD64123),
                               fontSize: 54,
                               fontWeight: FontWeight.w800),
                         ),
-                        Text(
+                        const Text(
                           'See your performance at a glance with useful insights',
                           style: TextStyle(
                               color: Color(0xff7D0C0E),
@@ -85,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const PinScreen()));
+                                builder: (context) => const DashboardScreen()));
                       },
                       child: const Text(
                         'Login Here',
@@ -101,7 +103,7 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Developed by'),
+                        const Text('Developed by'),
                         Image.asset('/images/ibana-logo.png'),
                       ],
                     ),

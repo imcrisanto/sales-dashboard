@@ -33,162 +33,228 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const Text('This is the cost screen'),
-          Form(
-            key: _formKey,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(100, 0, 100, 25),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Amount'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: TextFormField(
-                              onChanged: (value) {
-                                _amount = double.parse(value);
-                              },
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter sales amount',
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                } else if (isNumeric(value) == false) {
-                                  return 'Please enter a numeric value';
-                                }
-                                return null;
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Category'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: FormField<String>(
-                              builder: (FormFieldState<String> state) {
-                                return InputDecorator(
-                                  isEmpty: false,
-                                  decoration: InputDecoration(
-                                      errorStyle: const TextStyle(
-                                          color: Colors.redAccent,
-                                          fontSize: 16.0),
-                                      hintText: 'Please select expense',
-                                      border: OutlineInputBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0))),
-                                  child: DropdownButtonHideUnderline(
-                                    child: DropdownButton<String>(
-                                      value: _currentSelectedValue,
-                                      isDense: true,
-                                      onChanged: (newValue) {
-                                        setState(() {
-                                          _currentSelectedValue = newValue!;
-                                          _category = newValue;
-                                        });
-                                      },
-                                      items: categories.map((String value) {
-                                        return DropdownMenuItem<String>(
-                                          value: value,
-                                          child: Text(value),
-                                        );
-                                      }).toList(),
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text('Payment'),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: TextFormField(
-                              onChanged: (value) {
-                                _payment = double.parse(value);
-                              },
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter a search term',
-                              ),
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return 'Please enter some text';
-                                } else if (isNumeric(value) == false) {
-                                  return 'Please enter a numeric value';
-                                }
-                                return null;
-                              },
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: SizedBox(
-                      height: 60,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
-                            var date = DateTime.now().toString();
-
-                            var dateParse = DateTime.parse(date);
-
-                            entryDate =
-                                "${dateParse.year}-${dateParse.month}-${dateParse.day} ${dateParse.hour}:${dateParse.minute}:${dateParse.second}";
-                            widget.entry.add(DataEntry(_amount, _category,
-                                _payment, "Admin01", entryDate));
-
-                            Entries().testprint(widget.entry);
-
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('Adding to database')),
-                            );
-                          }
-                        },
-                        child: const Text('Add Entry'),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 100.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const Text(
+              'Monthly Expenses',
+              style: TextStyle(
+                  color: Color(0xffD64123),
+                  fontSize: 54,
+                  fontWeight: FontWeight.w800),
             ),
-          ),
-          /* Text(
-              "Time: ${entry[i].timeEnt}; Amount: ${entry[i].amountEnt};Category: ${entry[i].categoryEnt};Payment: ${entry[i].paymentEnt};User: ${entry[i].userEnt}")*/
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Rental',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Material',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'VAT Percentage',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Utilities',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'CUSA',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Royalty Percentage',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Divider(
+              color: Colors.redAccent, //color of divider
+              height: 5, //height spacing of divider
+              thickness: 2, //thickness of divier line
+            ),
+            const Text(
+              'Monthly Sales Targets',
+              style: TextStyle(
+                  color: Color(0xffD64123),
+                  fontSize: 54,
+                  fontWeight: FontWeight.w800),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Gross Sales',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Net Profit',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Order Volume',
+                        style: TextStyle(
+                            color: Color(0xff7D0C0E),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  height: 60,
+                  width: 250,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.red),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'EDIT',
+                      style: TextStyle(
+                          color: Color(0xffD64123),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 60,
+                  width: 250,
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      foregroundColor:
+                          MaterialStateProperty.all<Color>(Colors.red),
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      'SAVE',
+                      style: TextStyle(
+                          color: Color(0xffD64123),
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
