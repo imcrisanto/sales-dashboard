@@ -15,8 +15,8 @@ final pages = <Widget>[
   SalesScreen(
     entry: local,
   ),
-  const SettingsScreen(
-    entry: [],
+  SettingsScreen(
+    entry: local,
   ),
 ];
 
