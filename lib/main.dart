@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sales Dashboard for Avire Branch',
       theme: ThemeData(
+        fontFamily: 'Squad',
         primarySwatch: Palette.tapaking,
         scaffoldBackgroundColor: const Color(0xffF5E9D9),
       ),
@@ -31,7 +32,10 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sales Dashboard for Avire Branch'),
+        title: const Text(
+          'Sales Dashboard for Avire Branch',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: Center(
         child: Row(
@@ -42,22 +46,37 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Column(
-                    children: [
-                      const Text('Take control of sales and data'),
-                      const Text(
-                          'See your performance at a glance with useful insights'),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 100.0, horizontal: 50.0),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Take control of sales and data',
+                          style: TextStyle(
+                              color: Color(0xffD64123),
+                              fontSize: 54,
+                              fontWeight: FontWeight.w800),
+                        ),
+                        Text(
+                          'See your performance at a glance with useful insights',
+                          style: TextStyle(
+                              color: Color(0xff7D0C0E),
+                              fontSize: 26,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: 70,
-                    width: 270,
+                    width: 320,
                     child: ElevatedButton(
                       style: ButtonStyle(
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                            borderRadius: BorderRadius.circular(100.0),
                           ),
                         ),
                       ),
@@ -68,29 +87,24 @@ class LoginScreen extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => const PinScreen()));
                       },
-                      child: const Text('Login'),
+                      child: const Text(
+                        'Login Here',
+                        style: TextStyle(
+                            color: Color(0xffEDDECA),
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        children: [
-                          const Expanded(
-                            child: Text(''),
-                            flex: 3,
-                          ),
-                          Expanded(
-                            child: Image.asset('/images/ibana-logo.png'),
-                            flex: 4,
-                          ),
-                          const Expanded(
-                            child: Text(''),
-                            flex: 3,
-                          ),
-                        ],
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(50, 0, 350, 0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Developed by'),
+                        Image.asset('/images/ibana-logo.png'),
+                      ],
+                    ),
                   ),
                 ],
               ),
