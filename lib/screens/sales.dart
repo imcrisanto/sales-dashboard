@@ -76,6 +76,9 @@ class SalesScreen extends StatelessWidget {
             height: 5, //height spacing of divider
             thickness: 2, //thickness of divier line
           ),
+          for (int i = 0; i < entry.length; i++)
+            Text(
+                "Time: ${entry[i].timeEnt}; Amount: ${entry[i].amountEnt};Category: ${entry[i].categoryEnt};Payment: ${entry[i].paymentEnt};User: ${entry[i].userEnt}")
         ],
       ),
     ));

@@ -13,12 +13,25 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
   final _formKey = GlobalKey<FormState>();
   double _amount = 0;
   late String _category;
-  double _payment = 0;
+  late String _paycategory;
   late String formattedDate;
   late String entryDate;
-  final List<String> categories = ["Dine-In", "Take-Out", "Delivery"];
+  final List<String> categories = [
+    "Unselected",
+    "Dine-In",
+    "Take-Out",
+    "Delivery"
+  ];
+  final List<String> payment_categories = [
+    "Unselected",
+    "Cash",
+    "Credit",
+    "Debit",
+    "GCash/Paymaya"
+  ];
 
-  String _currentSelectedValue = 'Dine-In';
+  String _currentSelectedValue = 'Unselected';
+  String _currentPayCategory = 'Unselected';
   @override
   void initState() {
     var date = DateTime.now().toString();
@@ -344,6 +357,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                   _amount = double.parse(value);
                                 },
                                 decoration: const InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white,
                                   border: OutlineInputBorder(),
                                   hintText: 'Enter sales amount',
                                 ),
@@ -382,6 +397,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                   return InputDecorator(
                                     isEmpty: false,
                                     decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.white,
                                         errorStyle: const TextStyle(
                                             color: Colors.redAccent,
                                             fontSize: 16.0),
@@ -422,6 +439,63 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
+                              'Payment Type',
+                              style: TextStyle(
+                                  color: Color(0xff7D0C0E),
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 16.0),
+                              child: FormField<String>(
+                                builder: (FormFieldState<String> state) {
+                                  return InputDecorator(
+                                    isEmpty: false,
+                                    decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        errorStyle: const TextStyle(
+                                            color: Colors.redAccent,
+                                            fontSize: 16.0),
+                                        hintText: 'Please select Payment Type',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0))),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton<String>(
+                                        value: _currentPayCategory,
+                                        isDense: true,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            _currentPayCategory = newValue!;
+                                            _paycategory = newValue;
+                                          });
+                                        },
+                                        items: payment_categories
+                                            .map((String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    /*Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text(
                               'Payment',
                               style: TextStyle(
                                   color: Color(0xff7D0C0E),
@@ -430,28 +504,47 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 16),
-                              child: TextFormField(
-                                onChanged: (value) {
-                                  _payment = double.parse(value);
-                                },
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: 'Enter a search term',
-                                ),
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter some text';
-                                  } else if (isNumeric(value) == false) {
-                                    return 'Please enter a numeric value';
-                                  }
-                                  return null;
+                              child: FormField<String>(
+                                builder: (FormFieldState<String> state) {
+                                  return InputDecorator(
+                                    isEmpty: false,
+                                    decoration: InputDecoration(
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        errorStyle: const TextStyle(
+                                            color: Colors.redAccent,
+                                            fontSize: 16.0),
+                                        hintText: 'Please select expense',
+                                        border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0))),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton<String>(
+                                        value: _currentSelectedValue,
+                                        isDense: true,
+                                        onChanged: (newValue) {
+                                          setState(() {
+                                            _currentSelectedValue = newValue!;
+                                            _category = newValue;
+                                          });
+                                        },
+                                        items: payment_categories
+                                            .map((String value) {
+                                          return DropdownMenuItem<String>(
+                                            value: value,
+                                            child: Text(value),
+                                          );
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  );
                                 },
                               ),
                             )
                           ],
                         ),
                       ),
-                    ),
+                    ),*/
                     Expanded(
                       child: SizedBox(
                         height: 60,
@@ -467,7 +560,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               entryDate =
                                   "${dateParse.year}-${dateParse.month}-${dateParse.day} ${dateParse.hour}:${dateParse.minute}:${dateParse.second}";
                               widget.entry.add(DataEntry(_amount, _category,
-                                  _payment, "Admin01", entryDate));
+                                  _paycategory, "Admin01", entryDate));
 
                               Entries().testprint(widget.entry);
 

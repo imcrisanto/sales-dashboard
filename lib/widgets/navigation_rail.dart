@@ -12,8 +12,8 @@ List<DataEntry> local = Entries().listreturn();
 final pages = <Widget>[
   DashHomeScreen(entry: local),
   const RecipeScreen(),
-  const SalesScreen(
-    entry: [],
+  SalesScreen(
+    entry: local,
   ),
   const SettingsScreen(
     entry: [],

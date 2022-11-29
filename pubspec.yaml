@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   pinput: ^2.2.9
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -146,9 +147,6 @@ flutter:
               style: italic
             - asset: assets/fonts/Poppins-Regular.ttf
               weight: 400
-            - asset: assets/fonts/Poppins-RegularItalic.ttf
-              weight: 400
-              style: italic
             - asset: assets/fonts/Poppins-Light.ttf
               weight: 300
             - asset: assets/fonts/Poppins-LightItalic.ttf
