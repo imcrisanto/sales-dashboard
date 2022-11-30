@@ -46,213 +46,371 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   fontSize: 54,
                   fontWeight: FontWeight.w800),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Rental',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Material',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'VAT Percentage',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Utilities',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'CUSA',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Royalty Percentage',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Divider(
-              color: Colors.redAccent, //color of divider
-              height: 5, //height spacing of divider
-              thickness: 2, //thickness of divier line
-            ),
-            const Text(
-              'Monthly Sales Targets',
-              style: TextStyle(
-                  color: Color(0xffD64123),
-                  fontSize: 54,
-                  fontWeight: FontWeight.w800),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Gross Sales',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Net Profit',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
-                  child: Column(
-                    children: [
-                      const Text(
-                        'Order Volume',
-                        style: TextStyle(
-                            color: Color(0xff7D0C0E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  height: 60,
-                  width: 250,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.red),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+            Form(
+              key: _formKey,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(100, 0, 100, 25),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      'EDIT',
-                      style: TextStyle(
-                          color: Color(0xffD64123),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 60,
-                  width: 250,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      foregroundColor:
-                          MaterialStateProperty.all<Color>(Colors.red),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    onPressed: () {},
-                    child: Text(
-                      'SAVE',
-                      style: TextStyle(
-                          color: Color(0xffD64123),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                    Divider(
+                      height: 3,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Amount',
+                                  style: TextStyle(
+                                      color: Color(0xff7D0C0E),
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 16),
+                                  child: TextFormField(
+                                    onChanged: (value) {
+                                      _amount = double.parse(value);
+                                    },
+                                    decoration: const InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(),
+                                      hintText: 'Enter sales amount',
+                                    ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please enter some text';
+                                      } else if (isNumeric(value) == false) {
+                                        return 'Please enter a numeric value';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: SizedBox(
+                            height: 80,
+                            width: 120,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'ADD ENTRY',
+                                style: const TextStyle(
+                                  color: const Color(0xffFFFFFF),
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ],
-            )
+              ),
+            ),
           ],
         ),
       ),

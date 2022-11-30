@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/database_mimic.dart';
-import '../screens/dashboard.dart';
-import '../screens/recipes.dart';
-import '../screens/sales.dart';
-import '../screens/settings.dart';
 
 class DashHomeScreen extends StatefulWidget {
   final List<DataEntry> entry;
@@ -116,10 +112,11 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                   elevation: 10,
                   color: const Color(0xffFFD5AA),
                   child: InkWell(
+                    onTap: () {},
                     splashColor: Colors.lightBlueAccent.withAlpha(30),
                     child: SizedBox(
                       width: 300,
-                      height: 230,
+                      height: 200,
                       child: Padding(
                         padding: const EdgeInsets.all(35.0),
                         child: Column(
@@ -150,12 +147,6 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Spacer(
                               flex: 1,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('tap for more info'),
-                              ],
-                            ),
                           ],
                         ),
                       ),
@@ -170,7 +161,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     onTap: () {},
                     child: SizedBox(
                       width: 300,
-                      height: 230,
+                      height: 200,
                       child: Padding(
                         padding: const EdgeInsets.all(35.0),
                         child: Column(
@@ -201,12 +192,6 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Spacer(
                               flex: 1,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('tap for more info'),
-                              ],
-                            ),
                           ],
                         ),
                       ),
@@ -221,7 +206,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     onTap: () {},
                     child: SizedBox(
                       width: 300,
-                      height: 230,
+                      height: 200,
                       child: Padding(
                         padding: const EdgeInsets.all(35.0),
                         child: Column(
@@ -252,12 +237,6 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Spacer(
                               flex: 1,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('tap for more info'),
-                              ],
-                            ),
                           ],
                         ),
                       ),
@@ -272,7 +251,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     onTap: () {},
                     child: SizedBox(
                       width: 300,
-                      height: 230,
+                      height: 200,
                       child: Padding(
                         padding: const EdgeInsets.all(35.0),
                         child: Column(
@@ -282,7 +261,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Text(
                               'Breakeven',
                               style: TextStyle(
-                                  color: Color(0xff7D0C0E),
+                                  color: Color(0xff000000),
                                   fontSize: 30,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -302,12 +281,6 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             ),
                             Spacer(
                               flex: 1,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('tap for more info'),
-                              ],
                             ),
                           ],
                         ),
@@ -373,7 +346,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                   return null;
                                 },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -493,7 +466,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     ),
                     Expanded(
                       child: SizedBox(
-                        height: 60,
+                        height: 80,
+                        width: 120,
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
@@ -516,10 +490,17 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               );
                             }
                           },
-                          child: const Text('Add Entry'),
+                          child: const Text(
+                            'ADD ENTRY',
+                            style: const TextStyle(
+                              color: const Color(0xffFFFFFF),
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
