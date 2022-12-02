@@ -12,7 +12,7 @@ class SalesScreen extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(100.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const Padding(
@@ -25,102 +25,97 @@ class SalesScreen extends StatelessWidget {
                     fontWeight: FontWeight.w800),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                Text(
-                  'Transaction ID',
-                  style: TextStyle(
-                      color: Color(0xff7D0C0E),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Dining Category',
-                  style: TextStyle(
-                      color: Color(0xff7D0C0E),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Amount',
-                  style: TextStyle(
-                      color: Color(0xff7D0C0E),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'Type',
-                  style: TextStyle(
-                      color: Color(0xff7D0C0E),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
-                ),
-                Text(
-                  'User',
-                  style: TextStyle(
-                      color: Color(0xff7D0C0E),
-                      fontSize: 24,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
-            ),
-            const Divider(
-              color: Colors.redAccent, //color of divider
-              height: 5, //height spacing of divider
-              thickness: 2, //thickness of divier line
-            ),
-            for (int i = 0; i < entry.length; i++)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text(
-                    entry[i].timeEnt,
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 24,
-                      color: Color(0xff7D0C0E),
-                    ),
-                  ),
-                  Text(
-                    entry[i].categoryEnt,
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 24,
-                      color: Color(0xff7D0C0E),
-                    ),
-                  ),
-                  Text(
-                    '₱ ' "${entry[i].amountEnt}" '.00',
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 24,
-                      color: Color(0xff7D0C0E),
-                    ),
-                  ),
-                  Text(
-                    entry[i].paymentEnt,
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 24,
-                      color: Color(0xff7D0C0E),
-                    ),
-                  ),
-                  Text(
-                    entry[i].userEnt,
-                    style: const TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 24,
-                      color: Color(0xff7D0C0E),
-                    ),
-                  ),
+            DataTable(
+                border: const TableBorder(
+                    horizontalInside:
+                        BorderSide(width: 2, color: Colors.redAccent)),
+                columns: const [
+                  DataColumn(
+                      label: Text(
+                    'Transaction ID',
+                    style: TextStyle(
+                        color: Color(0xff7D0C0E),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Dining Category',
+                    style: TextStyle(
+                        color: Color(0xff7D0C0E),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Amount',
+                    style: TextStyle(
+                        color: Color(0xff7D0C0E),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'Type',
+                    style: TextStyle(
+                        color: Color(0xff7D0C0E),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  )),
+                  DataColumn(
+                      label: Text(
+                    'User',
+                    style: TextStyle(
+                        color: Color(0xff7D0C0E),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600),
+                  ))
                 ],
-              ),
-            const Divider(
-              color: Colors.redAccent, //color of divider
-              height: 5, //height spacing of divider
-              thickness: 2, //thickness of divier line
-            ),
+                rows: [
+                  for (int i = 0; i < entry.length; i++)
+                    DataRow(cells: [
+                      DataCell(Text(
+                        entry[i].timeEnt,
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 24,
+                          color: Color(0xff7D0C0E),
+                        ),
+                      )),
+                      DataCell(Text(
+                        entry[i].categoryEnt,
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 24,
+                          color: Color(0xff7D0C0E),
+                        ),
+                      )),
+                      DataCell(Text(
+                        '₱ ' "${entry[i].amountEnt}" '.00',
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 24,
+                          color: Color(0xff7D0C0E),
+                        ),
+                      )),
+                      DataCell(Text(
+                        entry[i].paymentEnt,
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 24,
+                          color: Color(0xff7D0C0E),
+                        ),
+                      )),
+                      DataCell(Text(
+                        entry[i].userEnt,
+                        style: const TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 24,
+                          color: Color(0xff7D0C0E),
+                        ),
+                      ))
+                    ])
+                ]),
           ],
         ),
       ),
