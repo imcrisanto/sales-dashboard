@@ -238,10 +238,9 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  '₱ '
-                                  '12,345', // insert changes here  "₱  ${widget.holder.orders}"
-                                  style: TextStyle(
+                                Text(
+                                  f.format(sales(widget.entry)),
+                                  style: const TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xff7D0C0E),
                                       fontSize: 34,
@@ -284,12 +283,11 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  '₱ '
-                                  '12,345', // insert changes here  "₱  ${widget.holder.orders}"
-                                  style: TextStyle(
+                                Text(
+                                  f.format(sales(widget.entry)),
+                                  style: const TextStyle(
                                       fontFamily: 'Poppins',
-                                      color: Color(0xff7D0C0E),
+                                      color: Color(0xff126201),
                                       fontSize: 34,
                                       fontWeight: FontWeight.w800),
                                 ),
@@ -345,6 +343,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               child: TextFormField(
+                                style: const TextStyle(fontFamily: 'Poppins'),
                                 onChanged: (value) {
                                   _amount = double.parse(value);
                                 },

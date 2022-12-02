@@ -83,6 +83,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       autofocus: true,
                       onPressed: () {
+                        debugPrint('Logged-in');
                         Navigator.push(
                             context,
                             MaterialPageRoute(

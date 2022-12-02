@@ -16,10 +16,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
   final _formKey = GlobalKey<FormState>();
   double _rental = 0;
   double _material = 0;
-  double _vat = 0;
+  double _vat = 12;
   double _utilities = 0;
   double _cusa = 0;
-  double _royalty = 0;
+  double _royalty = 6;
   double _sales = 0;
   double _orders = 0;
   @override
@@ -65,6 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
                                 child: TextFormField(
+                                  style: const TextStyle(fontFamily: 'Poppins'),
                                   onChanged: (value) {
                                     _rental = double.parse(value);
                                   },
@@ -72,11 +73,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(),
-                                    hintText: 'Enter rental costs',
+                                    hintText: 'Edit rental costs',
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'Please enter some text';
+                                      return 'Missing Value';
                                     } else if (isNumeric(value) == false) {
                                       return 'Please enter a numeric value';
                                     }
@@ -105,6 +106,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
                                 child: TextFormField(
+                                  style: const TextStyle(fontFamily: 'Poppins'),
                                   onChanged: (value) {
                                     _material = double.parse(value);
                                   },
@@ -112,11 +114,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(),
-                                    hintText: 'Enter material costs',
+                                    hintText: 'Edit material costs',
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'Please enter some text';
+                                      return 'Missing Value';
                                     } else if (isNumeric(value) == false) {
                                       return 'Please enter a numeric value';
                                     }
@@ -145,6 +147,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
                                 child: TextFormField(
+                                  style: const TextStyle(fontFamily: 'Poppins'),
                                   onChanged: (value) {
                                     _vat = double.parse(value);
                                   },
@@ -152,11 +155,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(),
-                                    hintText: 'Enter VAT percentage',
+                                    hintText: 'Edit VAT percentage',
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'Please enter some text';
+                                      return 'Missing Value';
                                     } else if (isNumeric(value) == false) {
                                       return 'Please enter a numeric value';
                                     }
@@ -192,6 +195,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 16),
                                   child: TextFormField(
+                                    style:
+                                        const TextStyle(fontFamily: 'Poppins'),
                                     onChanged: (value) {
                                       _utilities = double.parse(value);
                                     },
@@ -199,11 +204,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       filled: true,
                                       fillColor: Colors.white,
                                       border: OutlineInputBorder(),
-                                      hintText: 'Enter utility costs',
+                                      hintText: 'Edit utility costs',
                                     ),
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return 'Please enter some text';
+                                        return 'Missing Value';
                                       } else if (isNumeric(value) == false) {
                                         return 'Please enter a numeric value';
                                       }
@@ -232,6 +237,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 16),
                                   child: TextFormField(
+                                    style:
+                                        const TextStyle(fontFamily: 'Poppins'),
                                     onChanged: (value) {
                                       _cusa = double.parse(value);
                                     },
@@ -239,11 +246,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       filled: true,
                                       fillColor: Colors.white,
                                       border: OutlineInputBorder(),
-                                      hintText: 'Enter CUSA costs',
+                                      hintText: 'Edit CUSA costs',
                                     ),
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return 'Please enter some text';
+                                        return 'Missing Value';
                                       } else if (isNumeric(value) == false) {
                                         return 'Please enter a numeric value';
                                       }
@@ -272,6 +279,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 16),
                                   child: TextFormField(
+                                    style:
+                                        const TextStyle(fontFamily: 'Poppins'),
                                     onChanged: (value) {
                                       _royalty = double.parse(value);
                                     },
@@ -279,11 +288,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       filled: true,
                                       fillColor: Colors.white,
                                       border: OutlineInputBorder(),
-                                      hintText: 'Enter royalty percentage',
+                                      hintText: 'Edit royalty percentage',
                                     ),
                                     validator: (value) {
                                       if (value == null || value.isEmpty) {
-                                        return 'Please enter some text';
+                                        return 'Missing Value';
                                       } else if (isNumeric(value) == false) {
                                         return 'Please enter a numeric value';
                                       }
@@ -334,6 +343,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
                                 child: TextFormField(
+                                  style: const TextStyle(fontFamily: 'Poppins'),
                                   onChanged: (value) {
                                     _sales = double.parse(value);
                                   },
@@ -341,11 +351,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(),
-                                    hintText: 'Enter sales volume',
+                                    hintText: 'Edit sales volume',
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'Please enter some text';
+                                      return 'Missing Value';
                                     } else if (isNumeric(value) == false) {
                                       return 'Please enter a numeric value';
                                     }
@@ -374,6 +384,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 16),
                                 child: TextFormField(
+                                  style: const TextStyle(fontFamily: 'Poppins'),
                                   onChanged: (value) {
                                     _orders = double.parse(value);
                                   },
@@ -381,11 +392,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: OutlineInputBorder(),
-                                    hintText: 'Enter order volume',
+                                    hintText: 'Edit order volume',
                                   ),
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-                                      return 'Please enter some text';
+                                      return 'Missing Value';
                                     } else if (isNumeric(value) == false) {
                                       return 'Please enter a numeric value';
                                     }
@@ -414,9 +425,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 widget.holder.material = _material;
 
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content:
-                                          Text('Saving Targets and Expenses')),
+                                  SnackBar(
+                                      content: Text(
+                                          "Values Updated - Rental: $_rental; Material: $_material; VAT: $_vat; Utilities: $_utilities; CUSA: $_cusa; Royalty: $_royalty; Sales: $_sales; Orders: $_orders")),
                                 );
                               }
                               if (kDebugMode) {
