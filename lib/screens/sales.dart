@@ -14,9 +14,9 @@ class SalesScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 25.0),
-            child: const Text(
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 25.0),
+            child: Text(
               'Sales Entries',
               style: TextStyle(
                   color: Color(0xffD64123),
@@ -26,36 +26,36 @@ class SalesScreen extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const Text(
+            children: const [
+              Text(
                 'Transaction ID',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
                     fontSize: 24,
                     fontWeight: FontWeight.w600),
               ),
-              const Text(
+              Text(
                 'Dining Category',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
                     fontSize: 24,
                     fontWeight: FontWeight.w600),
               ),
-              const Text(
+              Text(
                 'Amount',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
                     fontSize: 24,
                     fontWeight: FontWeight.w600),
               ),
-              const Text(
+              Text(
                 'Type',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
                     fontSize: 24,
                     fontWeight: FontWeight.w600),
               ),
-              const Text(
+              Text(
                 'User',
                 style: TextStyle(
                     color: Color(0xff7D0C0E),
@@ -64,7 +64,7 @@ class SalesScreen extends StatelessWidget {
               ),
             ],
           ),
-          Divider(
+          const Divider(
             color: Colors.redAccent, //color of divider
             height: 5, //height spacing of divider
             thickness: 2, //thickness of divier line
@@ -74,16 +74,16 @@ class SalesScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  "${entry[i].timeEnt}",
-                  style: TextStyle(
+                  entry[i].timeEnt,
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
                     color: Color(0xff7D0C0E),
                   ),
                 ),
                 Text(
-                  "${entry[i].categoryEnt}",
-                  style: TextStyle(
+                  entry[i].categoryEnt,
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
                     color: Color(0xff7D0C0E),
@@ -91,23 +91,23 @@ class SalesScreen extends StatelessWidget {
                 ),
                 Text(
                   '₱ ' "${entry[i].amountEnt}" '.00',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
                     color: Color(0xff7D0C0E),
                   ),
                 ),
                 Text(
-                  "${entry[i].paymentEnt}",
-                  style: TextStyle(
+                  entry[i].paymentEnt,
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
                     color: Color(0xff7D0C0E),
                   ),
                 ),
                 Text(
-                  "${entry[i].userEnt}",
-                  style: TextStyle(
+                  entry[i].userEnt,
+                  style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 24,
                     color: Color(0xff7D0C0E),
@@ -115,7 +115,7 @@ class SalesScreen extends StatelessWidget {
                 ),
               ],
             ),
-          Divider(
+          const Divider(
             color: Colors.redAccent, //color of divider
             height: 5, //height spacing of divider
             thickness: 2, //thickness of divier line

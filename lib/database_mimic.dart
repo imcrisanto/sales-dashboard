@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 class DataEntry {
   DataEntry(double amountInt, String categoryInt, String paymentType,

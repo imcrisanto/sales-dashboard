@@ -52,15 +52,15 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 100.0, horizontal: 50.0),
                     child: Column(
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           'Take control of sales and data',
                           style: TextStyle(
                               color: Color(0xffD64123),
                               fontSize: 54,
                               fontWeight: FontWeight.w800),
                         ),
-                        const Text(
+                        Text(
                           'See your performance at a glance with useful insights',
                           style: TextStyle(
                               color: Color(0xff7D0C0E),

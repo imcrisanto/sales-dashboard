@@ -95,7 +95,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                       child: Text(
                         formattedDate,
                         style: const TextStyle(
-                          color: const Color(0xffD64123),
+                          color: Color(0xffD64123),
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                         ),
@@ -123,7 +123,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Orders',
                               style: TextStyle(
                                   color: Color(0xff000000),
@@ -133,7 +133,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   '₱ ' '12,345',
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -144,7 +144,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                 Image.asset('/icons/orders-icon.png'),
                               ],
                             ),
-                            Spacer(
+                            const Spacer(
                               flex: 1,
                             ),
                           ],
@@ -168,7 +168,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Sales to Date',
                               style: TextStyle(
                                   color: Color(0xff000000),
@@ -178,7 +178,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   '₱ ' '12,345',
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -189,7 +189,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                 Image.asset('/icons/sales-icon.png'),
                               ],
                             ),
-                            Spacer(
+                            const Spacer(
                               flex: 1,
                             ),
                           ],
@@ -213,7 +213,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Monthly Cost',
                               style: TextStyle(
                                   color: Color(0xff000000),
@@ -223,7 +223,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   '₱ ' '12,345',
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
@@ -234,7 +234,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                 Image.asset('/icons/cost-icon.png'),
                               ],
                             ),
-                            Spacer(
+                            const Spacer(
                               flex: 1,
                             ),
                           ],
@@ -258,7 +258,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               'Breakeven',
                               style: TextStyle(
                                   color: Color(0xff000000),
@@ -279,7 +279,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                 Image.asset('/icons/breakeven-icon.png'),
                               ],
                             ),
-                            Spacer(
+                            const Spacer(
                               flex: 1,
                             ),
                           ],
@@ -294,8 +294,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
               padding: const EdgeInsets.fromLTRB(100, 0, 100, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'New Sales Entry',
                     style: TextStyle(
                         color: Color(0xffD64123),
@@ -492,8 +492,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                           },
                           child: const Text(
                             'ADD ENTRY',
-                            style: const TextStyle(
-                              color: const Color(0xffFFFFFF),
+                            style: TextStyle(
+                              color: Color(0xffFFFFFF),
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),

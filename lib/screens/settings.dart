@@ -32,9 +32,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 25.0),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 25.0),
+                  child: Text(
                     'Monthly Expenses',
                     style: TextStyle(
                         color: Color(0xffD64123),
@@ -292,15 +292,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 25.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 25.0),
                   child: Divider(
                     height: 3,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 25.0),
-                  child: const Text(
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 25.0),
+                  child: Text(
                     'Monthly Targets',
                     style: TextStyle(
                         color: Color(0xffD64123),
@@ -397,8 +397,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           onPressed: () {},
                           child: const Text(
                             'EDIT ENTRIES',
-                            style: const TextStyle(
-                              color: const Color(0xffFFFFFF),
+                            style: TextStyle(
+                              color: Color(0xffFFFFFF),
                               fontSize: 28,
                               fontWeight: FontWeight.bold,
                             ),
