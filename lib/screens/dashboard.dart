@@ -75,7 +75,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        'Kumusta ' 'Al',
+                        'Kumusta',
                         style: TextStyle(
                             color: Color(0xffD64123),
                             fontSize: 54,
