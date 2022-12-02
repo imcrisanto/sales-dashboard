@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/database_mimic.dart';
+import 'package:flutter/foundation.dart';
 
 class SettingsScreen extends StatefulWidget {
   final List<DataEntry> entry;
-  const SettingsScreen({Key? key, required this.entry}) : super(key: key);
+  final MonthlyExpTar holder;
+  const SettingsScreen({Key? key, required this.entry, required this.holder})
+      : super(key: key);
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -19,7 +22,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   double _royalty = 0;
   double _sales = 0;
   double _orders = 0;
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -400,7 +402,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           height: 80,
                           width: 100,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                widget.holder.rental = _rental;
+                                widget.holder.orders = _orders;
+                                widget.holder.sales = _sales;
+                                widget.holder.royalty = _royalty;
+                                widget.holder.cusa = _cusa;
+                                widget.holder.utilities = _utilities;
+                                widget.holder.vat = _vat;
+                                widget.holder.material = _material;
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content:
+                                          Text('Saving Targets and Expenses')),
+                                );
+                              }
+                              if (kDebugMode) {
+                                print(
+                                    "Rental: ${widget.holder.rental}; Material: ${widget.holder.material}; VAT: ${widget.holder.vat}; Utilities: ${widget.holder.utilities}; CUSA: ${widget.holder.cusa}; Royalty: ${widget.holder.royalty}; Sales: ${widget.holder.sales}; Orders: ${widget.holder.orders}");
+                                print(
+                                    "Rental: $_rental; Material: $_material; VAT: $_vat; Utilities: $_utilities; CUSA: $_cusa; Royalty: $_royalty; Sales: $_sales; Orders: $_orders");
+                              }
+                            },
                             child: const Text(
                               'EDIT ENTRIES',
                               style: TextStyle(
