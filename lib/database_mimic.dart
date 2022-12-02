@@ -28,9 +28,6 @@ class Entries {
     DataEntry(914, 'Takeout', "Cash", 'Sheryl', "2022-05-20 00:00:00"),
     DataEntry(459, 'Dine In', "Debit", 'Justin', "2022-05-20 00:00:00"),
     DataEntry(384, 'Takeout', "Cash", 'Sheryl', "2022-05-20 00:00:00"),
-    DataEntry(1019, 'Delivery', "Cash", 'Justin', "2022-05-20 00:00:00"),
-    DataEntry(855, 'Dine In', "Debit", 'Justin', "2022-05-20 00:00:00"),
-    DataEntry(560, 'Dine In', "Cash", 'Justin', "2022-05-20 00:00:00"),
   ];
 
   void addentry(List<DataEntry> roll, double amt, String categ, String pay,
