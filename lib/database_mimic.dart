@@ -58,3 +58,14 @@ class Entries {
     return storage;
   }
 }
+
+class MonthlyExpTar {
+  double rental = 0;
+  double material = 0;
+  double vat = 0;
+  double utilities = 0;
+  double cusa = 0;
+  double royalty = 0;
+  double sales = 0;
+  double orders = 0;
+}

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/database_mimic.dart';
+import 'package:intl/intl.dart';
 
 class DashHomeScreen extends StatefulWidget {
   final List<DataEntry> entry;
-  const DashHomeScreen({Key? key, required this.entry}) : super(key: key);
+  final MonthlyExpTar holder;
+  const DashHomeScreen({Key? key, required this.entry, required this.holder})
+      : super(key: key);
 
   @override
   State<DashHomeScreen> createState() => _DashHomeScreenState();
@@ -22,16 +25,28 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
     "Takeout",
     "Delivery"
   ];
-  final List<String> payment_categories = [
+  final List<String> paymentcategories = [
     "Unselected",
     "Cash",
     "Credit",
     "Debit",
     "GCash"
   ];
-
   String _currentSelectedValue = 'Unselected';
   String _currentPayCategory = 'Unselected';
+  int orders(List<DataEntry> roll) {
+    return roll.length;
+  }
+
+  double sales(List<DataEntry> roll) {
+    double total = 0;
+    for (int i = 0; i < roll.length; i++) {
+      total += roll[i].amountEnt;
+    }
+    return total;
+  }
+
+  var f = NumberFormat.currency(locale: 'EN-us', decimalDigits: 0, symbol: "₱");
   @override
   void initState() {
     var date = DateTime.now().toString();
@@ -133,9 +148,9 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  '₱ ' '12,345',
-                                  style: TextStyle(
+                                Text(
+                                  "${orders(widget.entry)}",
+                                  style: const TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xff7A4206),
                                       fontSize: 34,
@@ -178,9 +193,9 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  '₱ ' '12,345',
-                                  style: TextStyle(
+                                Text(
+                                  f.format(sales(widget.entry)),
+                                  style: const TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xff00215D),
                                       fontSize: 34,
@@ -224,7 +239,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  '₱ ' '12,345',
+                                  '₱ '
+                                  '12,345', // insert changes here  "₱  ${widget.holder.orders}"
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xff7D0C0E),
@@ -269,7 +285,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  '₱ ' '12,345',
+                                  '₱ '
+                                  '12,345', // insert changes here  "₱  ${widget.holder.orders}"
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xff7D0C0E),
@@ -447,7 +464,7 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                             _paycategory = newValue;
                                           });
                                         },
-                                        items: payment_categories
+                                        items: paymentcategories
                                             .map((String value) {
                                           return DropdownMenuItem<String>(
                                             value: value,

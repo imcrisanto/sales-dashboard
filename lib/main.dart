@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sales_dashboard/palette.dart';
-import 'package:sales_dashboard/screens/dashboard.dart';
 import 'package:sales_dashboard/widgets/navigation_rail.dart';
 import './screens/pincode.dart';
 import './palette.dart';

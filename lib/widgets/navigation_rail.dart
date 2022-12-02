@@ -9,14 +9,16 @@ import '../screens/settings.dart';
 import 'package:sales_dashboard/database_mimic.dart';
 
 List<DataEntry> local = Entries().listreturn();
+MonthlyExpTar exptar = MonthlyExpTar();
 final pages = <Widget>[
-  DashHomeScreen(entry: local),
+  DashHomeScreen(entry: local, holder: exptar),
   const RecipeScreen(),
   SalesScreen(
     entry: local,
   ),
   SettingsScreen(
     entry: local,
+    holder: exptar,
   ),
 ];
 
