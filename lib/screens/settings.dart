@@ -14,14 +14,14 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final _formKey = GlobalKey<FormState>();
-  double _rental = 0;
-  double _material = 0;
+  double _rental = 15000;
+  double _material = 8000;
   double _vat = 12;
-  double _utilities = 0;
-  double _cusa = 0;
+  double _utilities = 3000;
+  double _cusa = 2000;
   double _royalty = 6;
-  double _sales = 0;
-  double _orders = 0;
+  double _sales = 60000;
+  double _orders = 100;
   @override
   Widget build(BuildContext context) {
     return Center(

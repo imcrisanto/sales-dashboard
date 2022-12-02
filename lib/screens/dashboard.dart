@@ -239,7 +239,16 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  f.format(sales(widget.entry)),
+                                  f.format(widget.holder.rental +
+                                      widget.holder.material +
+                                      widget.holder.utilities +
+                                      widget.holder.cusa +
+                                      ((sales(widget.entry) *
+                                              widget.holder.vat) /
+                                          100) +
+                                      ((sales(widget.entry) *
+                                              widget.holder.royalty) /
+                                          100)),
                                   style: const TextStyle(
                                       fontFamily: 'Poppins',
                                       color: Color(0xff7D0C0E),
@@ -284,10 +293,20 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  f.format(sales(widget.entry)),
+                                  f.format(sales(widget.entry) -
+                                      (widget.holder.rental +
+                                          widget.holder.material +
+                                          widget.holder.utilities +
+                                          widget.holder.cusa +
+                                          ((sales(widget.entry) *
+                                                  widget.holder.vat) /
+                                              100) +
+                                          ((sales(widget.entry) *
+                                                  widget.holder.royalty) /
+                                              100))),
                                   style: const TextStyle(
                                       fontFamily: 'Poppins',
-                                      color: Color(0xff126201),
+                                      color: Color(0xff7D0C0E),
                                       fontSize: 34,
                                       fontWeight: FontWeight.w800),
                                 ),
