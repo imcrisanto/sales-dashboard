@@ -104,7 +104,9 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text('Developed by'),
-                        Image.asset('/images/ibana-logo.png'),
+                        Image.network(
+                          'https://raw.githubusercontent.com/imcrisanto/imcrisanto.github.io/main/assets/assets/images/ibana-logo.png',
+                        ),
                       ],
                     ),
                   ),
@@ -113,12 +115,12 @@ class LoginScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 2,
-              child: Image.asset(
-                '/images/wallpaper-1.png',
+              child: Image.network(
+                'https://global-uploads.webflow.com/5ec313bf98efb1435b19d4a6/5ec313bf98efb121fc19d578_tapa-king-franchisee2.jpg',
                 height: MediaQuery.of(context).size.height,
                 fit: BoxFit.cover,
               ),
-            )
+            ),
           ],
         ),
       ),

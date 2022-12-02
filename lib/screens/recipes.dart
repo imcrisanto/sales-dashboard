@@ -24,8 +24,8 @@ class RecipeScreen extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: Image.asset(
-              '/images/wallpaper-2.png',
+            child: Image.network(
+              'https://global-uploads.webflow.com/5ec313bf98efb1435b19d4a6/5ec313bf98efb1310c19d546_Tapa-King-Meals-Group.jpg',
               height: MediaQuery.of(context).size.height,
               fit: BoxFit.cover,
             ),

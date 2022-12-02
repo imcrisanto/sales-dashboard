@@ -156,7 +156,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                       fontSize: 34,
                                       fontWeight: FontWeight.w800),
                                 ),
-                                Image.asset('/icons/orders-icon.png'),
+                                Image.network(
+                                    'https://raw.githubusercontent.com/imcrisanto/imcrisanto.github.io/main/assets/assets/icons/breakeven-icon.png'),
                               ],
                             ),
                             const Spacer(
@@ -201,7 +202,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                       fontSize: 34,
                                       fontWeight: FontWeight.w800),
                                 ),
-                                Image.asset('/icons/sales-icon.png'),
+                                Image.network(
+                                    'https://raw.githubusercontent.com/imcrisanto/imcrisanto.github.io/main/assets/assets/icons/cost-icon.png'),
                               ],
                             ),
                             const Spacer(
@@ -255,7 +257,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                       fontSize: 34,
                                       fontWeight: FontWeight.w800),
                                 ),
-                                Image.asset('/icons/cost-icon.png'),
+                                Image.network(
+                                    'https://raw.githubusercontent.com/imcrisanto/imcrisanto.github.io/main/assets/assets/icons/orders-icon.png'),
                               ],
                             ),
                             const Spacer(
@@ -310,7 +313,8 @@ class _DashHomeScreenState extends State<DashHomeScreen> {
                                       fontSize: 34,
                                       fontWeight: FontWeight.w800),
                                 ),
-                                Image.asset('/icons/breakeven-icon.png'),
+                                Image.network(
+                                    'https://raw.githubusercontent.com/imcrisanto/imcrisanto.github.io/main/assets/assets/icons/sales-icon.png'),
                               ],
                             ),
                             const Spacer(
